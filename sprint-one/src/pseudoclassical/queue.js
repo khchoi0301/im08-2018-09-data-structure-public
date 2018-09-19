@@ -3,4 +3,8 @@ var Queue = function() {
   // but try not not reference your old code in writing the new style.
 };
 
-
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  module.exports = {
+    Queue
+  }
+}

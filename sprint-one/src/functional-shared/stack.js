@@ -5,4 +5,9 @@ var Stack = function() {
 
 var stackMethods = {};
 
-
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  module.exports = {
+    Stack,
+    stackMethods
+  };
+}

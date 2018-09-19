@@ -17,3 +17,9 @@ var Queue = function() {
 
   return someInstance;
 };
+
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  module.exports = {
+    Queue
+  }
+}

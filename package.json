@@ -1,0 +1,26 @@
+{
+  "name": "im08-2018-09-data-structure",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eslintrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "mocha sprint-one/spec/specs-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codestates/im08-2018-09-data-structure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codestates/im08-2018-09-data-structure/issues"
+  },
+  "homepage": "https://github.com/codestates/im08-2018-09-data-structure#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}

@@ -1,7 +1,21 @@
-define(['../../lib/chai/chai.js', '../../lib/underscore/underscore.js'], function(chai) {
-  var expect = chai.expect;
+(async () => {
+  let _, chai, expect;
+  if ( typeof module === "object" && typeof module.exports === "object" ) {
+    _ = require('../../lib/underscore/underscore');
+    chai = require('chai');
+    expect = chai.expect;
+  }
+  else {
+    await new Promise(resolve => {
+      define(['../../../lib/underscore/underscore', '../../../lib/chai/chai'], (underscore, chai) => {
+        _ = window._;
+        expect = chai.expect;
+        return verifyClass;
+      });
+    });
+  }
 
-  return function(constructor) {
+  function verifyClass(constructor) {
     return {followsPattern: function(pattern, options, prototypeOfInstances) {
       var patternIs = function() {
         return _(arguments).contains(pattern);
@@ -166,5 +180,10 @@ define(['../../lib/chai/chai.js', '../../lib/underscore/underscore.js'], functio
         console.warn('testClassPattern is being invoked with unused options: ', options);
       }
     }};
-  };
-});
+  }
+
+  if ( typeof module === "object" && typeof module.exports === "object" ) {
+    module.exports = verifyClass;
+  }
+
+})();

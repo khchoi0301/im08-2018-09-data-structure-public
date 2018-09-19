@@ -5,4 +5,9 @@ var Queue = function() {
 
 var queueMethods = {};
 
-
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  module.exports = {
+    Queue,
+    queueMethods
+  }
+}

@@ -1,3 +1,8 @@
+/*
+ *  180911 I don't find any benefit working on 'set'
+ *  so I remove it from the sprint
+ * /
+
 var Set = function() {
   var set = Object.create(setPrototype);
   set._storage = null; // fix me

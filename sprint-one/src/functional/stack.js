@@ -11,7 +11,7 @@ var Stack = function () {
     count++
   }
 
-  someInstance.pop = function (value) {
+  someInstance.pop = function () {
     if (count > 0) {
       count--
       let temp = storage[count]

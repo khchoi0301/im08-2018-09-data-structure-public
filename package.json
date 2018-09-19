@@ -7,8 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "mocha sprint-one/spec/specs-cli.js",
-    "test2": "mocha sprint-two/spec"
+    "test": "mocha sprint-one/spec/specs-cli.js sprint-two/spec"
   },
   "repository": {
     "type": "git",

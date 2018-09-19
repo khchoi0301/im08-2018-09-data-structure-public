@@ -1,3 +1,10 @@
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  require('mocha');
+  var chai = require('chai');
+  var expect = chai.expect;
+  var Set = require('../src/set');
+}
+
 describe('set', function() {
   var set;
 

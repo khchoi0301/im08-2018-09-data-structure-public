@@ -1,3 +1,10 @@
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  require('mocha');
+  var chai = require('chai');
+  var expect = chai.expect;
+  var Graph = require('../src/graph');
+}
+
 describe('graph', function() {
   var graph;
 

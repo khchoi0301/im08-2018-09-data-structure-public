@@ -1,3 +1,11 @@
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  require('mocha');
+  var chai = require('chai');
+  var expect = chai.expect;
+  var HashTable = require('../src/hashTable');
+  var { LimitedArray, getIndexBelowMaxForKey } = require('../src/hashTableHelpers');
+}
+
 describe('hashTable', function() {
   var hashTable;
   var people = [['Steven', 'Tyler'], ['George', 'Harrison'], ['Mr.', 'Doob'], ['Dr.', 'Sunshine'], ['John', 'Resig'], ['Brendan', 'Eich'], ['Alan', 'Turing']];
@@ -38,13 +46,13 @@ describe('hashTable', function() {
   it('should handle hash function collisions', function() {
     var v1 = 'val1';
     var v2 = 'val2';
-    var oldHashFunction = window.getIndexBelowMaxForKey;
-    window.getIndexBelowMaxForKey = function() { return 0; };
+    var oldHashFunction = getIndexBelowMaxForKey;
+    getIndexBelowMaxForKey = function() { return 0; };
     hashTable.insert(v1, v1);
     hashTable.insert(v2, v2);
     expect(hashTable.retrieve(v1)).to.equal(v1);
     expect(hashTable.retrieve(v2)).to.equal(v2);
-    window.getIndexBelowMaxForKey = oldHashFunction;
+    getIndexBelowMaxForKey = oldHashFunction;
   });
 
   // (Advanced! Remove the extra "x" when you want the following tests to run)

@@ -1,4 +1,6 @@
-
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  var { LimitedArray, getIndexBelowMaxForKey } = require('./hashTableHelpers');
+}
 
 var HashTable = function() {
   this._limit = 8;
@@ -24,3 +26,6 @@ HashTable.prototype.remove = function(k) {
  */
 
 
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  module.exports = HashTable;
+}

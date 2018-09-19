@@ -1,3 +1,10 @@
+if ( typeof module === "object" && typeof module.exports === "object" ) {
+  require('mocha');
+  var chai = require('chai');
+  var expect = chai.expect;
+  var BinarySearchTree = require('../src/binarySearchTree');
+}
+
 describe('binarySearchTree', function() {
   var binarySearchTree;
 

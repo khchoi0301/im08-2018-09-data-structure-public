@@ -8,8 +8,8 @@ var Tree = function (value) {
 var treeMethods = {}
 
 treeMethods.addChild = function (value) {
-  var a = new Tree(value)
-  this.children.push(a)
+  var child = Tree(value)
+  this.children.push(child)
 }
 
 treeMethods.contains = function (target) {

@@ -1,39 +1,36 @@
 var LinkedList = function () {
   var list = {}
-  var count = 0
   list.head = null
   list.tail = null
 
   list.addToTail = function (value) {
-    let item = Node(value, count)
-    if (!list.head) {
+    let item = Node(value)
+    if (list.head === null) {
       list.head = item
     } else {
-      list[count] = item
+      list.head.next = item
     }
     list.tail = item
-    count++
   }
 
   list.removeHead = function () {
-    let temp = list.head
-    list.head = list[temp.next]
-    return temp.value
+    let temp = list.head.value
+    list.head = list.head.next
+    return temp
   }
 
   list.contains = function (target) {
-    let obj = list.head
-    let test = function check (obj) {
-      if (obj === undefined) {
-        return false
-      }
-      if (obj.value === target) {
-        return true
-      } else {
-        return check(list[obj.next])
+    let result = false
+    function findTarget (position) {
+      if (position.value === target) {
+        result = true
+        return 0
+      } else if (position.next !== null) {
+        findTarget(position.next)
       }
     }
-    return test(obj)
+    findTarget(list.head)
+    return result
   }
   return list
 }
@@ -42,7 +39,7 @@ var Node = function (value, count) {
   var node = {}
 
   node.value = value
-  node.next = count + 1
+  node.next = null
 
   return node
 }

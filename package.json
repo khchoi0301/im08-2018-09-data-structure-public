@@ -20,7 +20,8 @@
     },
     "ignore": [
       "node_modules/",
-      "**/spec/*.js"
+      "**/spec/*.js",
+      "lib/underscore/underscore.js"
     ]
   },
   "repository": {

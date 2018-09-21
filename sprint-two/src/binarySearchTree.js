@@ -9,10 +9,11 @@ var BinarySearchTree = function (value) {
 }
 
 var BinarySearchMethod = {}
+
 BinarySearchMethod.insert = function (value) {
   var child = BinarySearchTree(value)
-  function mkChild (position, x) {
-    if (x < position.value) {
+  function mkChild (position, value) {
+    if (value < position.value) {
       if (position.left.value === undefined) {
         position.left = child
         return
@@ -50,7 +51,8 @@ BinarySearchMethod.depthFirstLog = function (func) {
     }
     if (position.right.value !== undefined) {
       findValue(position.right)
-    } else if (position.left.value !== undefined) {
+    } 
+    if (position.left.value !== undefined) {
       findValue(position.left)
     }
   }

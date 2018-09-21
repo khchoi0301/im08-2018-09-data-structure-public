@@ -10,7 +10,7 @@ Graph.prototype.addNode = function (node) {
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function (node) {
   for (let key in this) {
-    if (key === node) {
+    if (Number(key) === node) {
       return true
     }
   }

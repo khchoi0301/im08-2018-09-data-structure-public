@@ -8,12 +8,20 @@
   },
   "scripts": {
     "test": "mocha sprint-one/spec/specs-cli.js sprint-two/spec",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "eslint sprint-one/src sprint-two/src"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint",
-      "git add"
+    "linters": {
+      "*.js": [
+        "eslint",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "node_modules/",
+      "**/spec/*.js",
+      "lib/underscore/underscore.js"
     ]
   },
   "repository": {

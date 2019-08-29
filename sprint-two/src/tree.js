@@ -18,6 +18,7 @@ treeMethods.contains = function (target) {
   } else {
     return this.children.some(child => child.contains(target))
   }
+
 }
 
 /*

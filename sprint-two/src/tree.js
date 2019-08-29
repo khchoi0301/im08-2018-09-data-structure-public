@@ -13,18 +13,11 @@ treeMethods.addChild = function (value) {
 }
 
 treeMethods.contains = function (target) {
-  let result = false
-  function check (obj) {
-    if (obj.value === target) {
-      result = true
-    } else {
-      for (let i = 0; i < obj.children.length; i++) {
-        check(obj.children[i])
-      }
-    }
+  if (this.value === target) {
+    return true
+  } else {
+    return this.children.some(child => child.contains(target))
   }
-  check(this)
-  return result
 }
 
 /*
@@ -54,3 +47,15 @@ if (typeof module === 'object' && typeof module.exports === 'object') {
 //   return test(this)===undefined ? false : true
 
 // };
+  // let result = false
+  // function check (obj) {
+  //   if (obj.value === target) {
+  //     result = true
+  //   } else {
+  //     for (let i = 0; i < obj.children.length; i++) {
+  //       check(obj.children[i])
+  //     }
+  //   }
+  // }
+  // check(this)
+  // return result

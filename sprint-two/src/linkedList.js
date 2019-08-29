@@ -5,10 +5,10 @@ var LinkedList = function () {
 
   list.addToTail = function (value) {
     let item = Node(value)
-    if (list.head === null) {
+    if (!list.head) {
       list.head = item
     } else {
-      list.head.next = item
+      list.tail.next = item
     }
     list.tail = item
   }
@@ -20,17 +20,14 @@ var LinkedList = function () {
   }
 
   list.contains = function (target) {
-    let result = false
-    function findTarget (position) {
-      if (position.value === target) {
-        result = true
-        return 0
-      } else if (position.next !== null) {
-        findTarget(position.next)
+    let current = this.head
+    while (current) {
+      if (current.value === target) {
+        return true
       }
+      current = current.next
     }
-    findTarget(list.head)
-    return result
+    return false
   }
   return list
 }
